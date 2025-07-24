@@ -1,0 +1,17 @@
+Creative Commons Attribution‑NonCommercial 4.0 International  
+(CC BY‑NC 4.0)
+
+This licence applies **only** to the derived SeatGeek dataset(s) in this repository,
+with the following extensions: `*.csv`, `*.pkl`, `*.json`.
+
+You are free to:
+  • Share — copy and redistribute the material in any medium or format  
+  • Adapt — remix, transform, and build upon the material
+
+Under the following terms:
+  • **Attribution** — cite the paper and this repository.  
+  • **NonCommercial** — no commercial use, resale, or paid service built on the data.  
+  • **No SeatGeek endorsement** — SeatGeek and its trademarks remain the property of SeatGeek, Inc.  
+
+This licence does **not** cover the code scripts in this repository,
+which remain under the MIT licence found in `LICENSE`.
