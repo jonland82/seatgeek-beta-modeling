@@ -11,20 +11,20 @@
 
 ## Introduction
 
-This repository accompanies a three-part contribution: **(1)** a closed-form, constant-time estimator that recovers scaled-Beta parameters ((\alpha,\beta)) from `{min, max, mean, median}`; **(2)** an accuracy–fidelity link showing classification error bounds total variation and contracts **quadratically** in Jensen–Shannon divergence in the small-error regime; and **(3)** an implicit regularization mechanism for Random Forests via zero-variance (constant-value) features that rebalance split selection, deepen/variate trees, and yield modest but reliable accuracy gains. Experiments use a year-long SeatGeek pricing dataset; a digits benchmark confirms generality.
+This repository accompanies a three-part contribution: **(1)** a closed-form, constant-time estimator that recovers scaled-Beta parameters $(\alpha,\beta)$ from `{min, max, mean, median}`; **(2)** an accuracy–fidelity link showing classification error bounds total variation and contracts **quadratically** in Jensen–Shannon divergence in the small-error regime; and **(3)** an implicit regularization mechanism for Random Forests via zero-variance (constant-value) features that rebalance split selection, deepen/variate trees, and yield modest but reliable accuracy gains. Experiments use a year-long SeatGeek pricing dataset; a digits benchmark confirms generality.
 
 ---
 
 ## Overview & Contributions
 
 1. **Closed-Form Distribution Recovery from Limited Statistics**
-   Each daily snapshot is modeled as a **scaled Beta** on ([{\rm min},{\rm max}]). From `{min, max, mean, median}`, closed-form formulas recover ((\alpha,\beta)) via composite quantile (median) + moment (mean) matching, yielding a compact six-feature vector per event (({\rm min}, {\rm max}, {\rm mean}, {\rm median}, \alpha, \beta)). Adding ((\alpha,\beta)) to Random Forests improves pairwise artist classification on time-series snapshots. Case studies (e.g., Ed Sheeran vs. Beyoncé) illustrate how ((\alpha,\beta)) resolve subtle misclassifications.
+   Each daily snapshot is modeled as a **scaled Beta** on $[\text{min},\text{max}]$. From `{min, max, mean, median}`, closed-form formulas recover $(\alpha,\beta)$ via composite quantile (median) + moment (mean) matching, yielding a compact six-feature vector per event $(\text{min}, \text{max}, \text{mean}, \text{median}, \alpha, \beta)$. Adding $(\alpha,\beta)$ to Random Forests improves pairwise artist classification on time-series snapshots. Case studies (e.g., Ed Sheeran vs. Beyoncé) illustrate how $(\alpha,\beta)$ resolve subtle misclassifications.
 
 2. **Accuracy–Fidelity Link (TV & JS, Quadratic Regime)**
    Improvements in Random Forest classification accuracy bound **total variation** and imply **quadratic contraction in Jensen–Shannon divergence** in the small-error regime—so modest accuracy gains signify disproportionately stronger distributional agreement when ground-truth densities are unavailable.
 
 3. **Implicit Regularization via Zero-Variance Features**
-   Adding **zero-variance (constant-value) features** **dilutes** over-dominant predictors and increases ensemble variety and expected depth. An approximation and corollaries provide **near-continuous control** of split-selection probabilities and accuracy expansion in expectation. Case studies (e.g., Dropkick Murphys vs. The Avett Brothers) demonstrate how ((\alpha,\beta)) and the regularizer overcome nuanced errors.
+   Adding **zero-variance (constant-value) features** **dilutes** over-dominant predictors and increases ensemble variety and expected depth. An approximation and corollaries provide **near-continuous control** of split-selection probabilities and accuracy expansion in expectation. Case studies (e.g., Dropkick Murphys vs. The Avett Brothers) demonstrate how $(\alpha,\beta)$ and the regularizer overcome nuanced errors.
 
 **Dataset & Reproducibility**: ~130,000 events, 15,400 artists, and 6,700 venues (May 2023–2024). A transformed subset spanning 954 artists is available at **[`event_labels_1_18_2025_last_N_days.csv`](./event_labels_1_18_2025_last_N_days.csv)**. Utilities for creation and analysis are included.
 
@@ -41,7 +41,7 @@ This repository contains all code and data necessary to reproduce the experiment
 * **[`random_forest_on_tickets.ipynb`](./random_forest_on_tickets.ipynb)**: Trains and evaluates Random Forest models on the ticket pricing dataset, generating Figures 3a, 3b, 5a, 6a, 7a, 8a, and 9a. These figures illustrate model performance, feature usage, tree depth, and accuracy trends for artist classification.
 * **[`random_forest_on_digits.ipynb`](./random_forest_on_digits.ipynb)**: Applies Random Forest models to the UCI handwritten digits dataset, producing Figures 5b, 6b, 7b, 8b, and 9b, demonstrating the generalizability of the zero-variance regularization approach.
 * **[`kde_for_distribution_params.ipynb`](./kde_for_distribution_params.ipynb)**: Generates kernel density estimation (KDE) plots for distribution parameters, producing Figures 2 and 10. These figures compare feature distributions (e.g., α, β) across artists like Drake, Olivia Rodrigo, Dropkick Murphys, and The Avett Brothers, using Hellinger Distance and Jensen-Shannon divergence metrics.
-* **[`accuracy_fidelity_theory_experiment_refined.ipynb`](./accuracy_fidelity_theory_experiment_refined.ipynb)**: Implements the **synthetic ground-truth validation** of the accuracy–fidelity link (Section 4.6): generates scaled-Beta ground truth, reconstructs ((\alpha,\beta)) from `{min, max, mean, median}`, and plots **JS vs. TV** with two-sided bounds; produces the divergence figures referenced in Section 4.
+* **[`accuracy_fidelity_theory_experiment_refined.ipynb`](./accuracy_fidelity_theory_experiment_refined.ipynb)**: Implements the **synthetic ground-truth validation** of the accuracy–fidelity link (Section 4.6): generates scaled-Beta ground truth, reconstructs $(\alpha,\beta)$ from `{min, max, mean, median}`, and plots **JS vs. TV** with two-sided bounds; produces the divergence figures referenced in Section 4.
 
 ### Case Studies
 
@@ -61,7 +61,7 @@ This repository contains all code and data necessary to reproduce the experiment
 
 ## Acknowledgements
 
-The author used publicly available event data accessed via the SeatGeek API (SeatGeek, Inc.) in accordance with SeatGeek’s API Terms of Use. SeatGeek is not affiliated with this research and does not endorse it. All trademarks and content remain the property of their respective owners. Proper attribution is provided at [seatgeek.com](https://seatgeek.com) as required. Raw API data is not redistributed per licensing requirements. Only derived statistical features and methodology code are available in this repository.
+The author used publicly available event data accessed via the SeatGeek API (SeatGeek, Inc.) in accordance with SeatGeek's API Terms of Use. SeatGeek is not affiliated with this research and does not endorse it. All trademarks and content remain the property of their respective owners. Proper attribution is provided at [seatgeek.com](https://seatgeek.com) as required. Raw API data is not redistributed per licensing requirements. Only derived statistical features and methodology code are available in this repository.
 
 The author used standard computational tools and programming libraries,
 including Python packages and a large language model (OpenAI),
