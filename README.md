@@ -1,5 +1,3 @@
-# Markdown
-
 # Scaled Beta Models and Feature Dilution for Dynamic Ticket Pricing
 
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
