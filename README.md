@@ -1,19 +1,19 @@
-# Scaled Beta Models and Feature Dilution for Dynamic Ticket Pricing
+## Closed-Form Beta Distribution Recovery from Sparse Statistics with Random-Forest Implicit Regularization
 
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/Data-CC--BY--NC%204.0-lightgrey.svg)](DATA_LICENSE)
 
-## **Jonathan R. Landers, 2025**
+### **Jonathan R. Landers, 2025**
 
 ### [Manuscript PDF](./seatgeek-beta-modeling-v2.pdf)
 
-## Introduction
+### Introduction
 
 This repository accompanies a three-part contribution: **(1)** a closed-form, constant-time estimator that recovers scaled-Beta parameters $(\alpha,\beta)$ from `{min, max, mean, median}`; **(2)** an accuracy–fidelity link showing classification error bounds total variation and contracts **quadratically** in Jensen–Shannon divergence in the small-error regime; and **(3)** an implicit regularization mechanism for Random Forests via zero-variance (constant-value) features that rebalance split selection, deepen/variate trees, and yield modest but reliable accuracy gains. Experiments use a year-long SeatGeek pricing dataset; a digits benchmark confirms generality.
 
 ---
 
-## Overview & Contributions
+### Overview & Contributions
 
 1. **Closed-Form Distribution Recovery from Limited Statistics**
    Each daily snapshot is modeled as a **scaled Beta** on $[\text{min},\text{max}]$. From `{min, max, mean, median}`, closed-form formulas recover $(\alpha,\beta)$ via composite quantile (median) + moment (mean) matching, yielding a compact six-feature vector per event $(\text{min}, \text{max}, \text{mean}, \text{median}, \alpha, \beta)$. Adding $(\alpha,\beta)$ to Random Forests improves pairwise artist classification on time-series snapshots. Case studies (e.g., Ed Sheeran vs. Beyoncé) illustrate how $(\alpha,\beta)$ resolve subtle misclassifications.
@@ -28,7 +28,7 @@ This repository accompanies a three-part contribution: **(1)** a closed-form, co
 
 ---
 
-## Key Notebooks & Artifacts
+### Key Notebooks & Artifacts
 
 This repository contains all code and data necessary to reproduce the experimental results presented in the paper. The following Jupyter notebooks are organized to align with specific sections, figures, and tables in the manuscript:
 
@@ -41,12 +41,12 @@ This repository contains all code and data necessary to reproduce the experiment
 * **[`kde_for_distribution_params.ipynb`](./kde_for_distribution_params.ipynb)**: Generates kernel density estimation (KDE) plots for distribution parameters, producing Figures 2 and 10. These figures compare feature distributions (e.g., α, β) across artists like Drake, Olivia Rodrigo, Dropkick Murphys, and The Avett Brothers, using Hellinger Distance and Jensen-Shannon divergence metrics.
 * **[`accuracy_fidelity_theory_experiment_refined.ipynb`](./accuracy_fidelity_theory_experiment_refined.ipynb)**: Implements the **synthetic ground-truth validation** of the accuracy–fidelity link (Section 4.6): generates scaled-Beta ground truth, reconstructs $(\alpha,\beta)$ from `{min, max, mean, median}`, and plots **JS vs. TV** with two-sided bounds; produces the divergence figures referenced in Section 4.
 
-### Case Studies
+#### Case Studies
 
 * **[`ed_sheeran_vs_beyonce.ipynb`](./ed_sheeran_vs_beyonce.ipynb)**: Analyzes the misclassification of an Ed Sheeran concert as a Beyoncé event, generating Figures 4a and 4b. These figures contrast basic statistical features with distribution-augmented features (α, β), demonstrating how the latter corrects misclassifications by capturing nuanced pricing patterns.
 * **[`dm_vs_ab_regularization_improvements_analysis.ipynb`](./dm_vs_ab_regularization_improvements_analysis.ipynb)**: Investigates the classification of a Dropkick Murphys concert mislabeled as The Avett Brothers, producing Figures 11a and 11b. These figures illustrate how zero-variance feature regularization enhances feature selection (e.g., increasing β's prominence) to correct misclassifications. Figure 10 is also related to this example, but created by [`kde_for_distribution_params.ipynb`](./kde_for_distribution_params.ipynb).
 
-### Data
+#### Data
 
 * **[`event_labels_1_18_2025_last_N_days.csv`](./event_labels_1_18_2025_last_N_days.csv)**: The primary machine learning dataset, derived from raw SeatGeek API data using [`create_seatgeek_training_dataset.ipynb`](./create_seatgeek_training_dataset.ipynb).
 * **Intermediate Results**: Cached datasets to streamline reproducibility and avoid re-running computationally expensive tasks:
@@ -57,7 +57,7 @@ This repository contains all code and data necessary to reproduce the experiment
   * **[`results_df_4_28_2024_regularization.csv`](./results_df_4_28_2024_regularization.csv)**
   * **[`results_df_2_6_2024.csv`](./results_df_2_6_2024.csv)**
 
-## Acknowledgements
+### Acknowledgements
 
 The author used publicly available event data accessed via the SeatGeek API (SeatGeek, Inc.) in accordance with SeatGeek's API Terms of Use. SeatGeek is not affiliated with this research and does not endorse it. All trademarks and content remain the property of their respective owners. Proper attribution is provided at [seatgeek.com](https://seatgeek.com) as required. Raw API data is not redistributed per licensing requirements. Only derived statistical features and methodology code are available in this repository.
 
