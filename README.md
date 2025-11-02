@@ -5,7 +5,8 @@
 
 ### **Jonathan R. Landers, 2025**
 
-### [Manuscript PDF](./seatgeek-beta-modeling-v2.pdf)
+- [Latest Manuscript PDF](./seatgeek-beta-modeling-v2.pdf)
+- [arXiv-v1](https://arxiv.org/abs/2507.23767)
 
 ### Introduction
 
