@@ -18,7 +18,7 @@ Experiments use a year-long **SeatGeek** pricing dataset. A digits benchmark con
 
 ### Overview & Contributions
 
-1. **Closed-Form Distribution Estimation from Limited Statistics**
+1. **Closed-Form Beta Estimation from Limited Statistics**
    Each daily snapshot is modeled as a **scaled Beta** on $[\text{min},\text{max}]$. From `{min, max, mean, median}`, closed-form formulas recover $(\alpha,\beta)$ via composite quantile (median) + moment (mean) matching, yielding a compact six-feature vector per event $(\text{min}, \text{max}, \text{mean}, \text{median}, \alpha, \beta)$. Adding $(\alpha,\beta)$ to Random Forests improves pairwise artist classification on time-series snapshots. Case studies (e.g., Ed Sheeran vs. Beyoncé) illustrate how $(\alpha,\beta)$ resolve subtle misclassifications.
 
 2. **Accuracy–Fidelity Link (TV & JS, Quadratic Regime)**
