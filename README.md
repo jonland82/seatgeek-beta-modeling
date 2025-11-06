@@ -10,7 +10,7 @@
 
 ### Introduction
 
-This repository accompanies a three-part research contribution: **(1)** a closed-form, constant-time estimator that recovers scaled-Beta parameters $(\alpha,\beta)$ from `{min, max, mean, median}`; **(2)** an accuracy–fidelity link showing classification error bounds total variation and contracts **quadratically** in Jensen–Shannon divergence in the small-error regime; and **(3)** an implicit regularization mechanism for Random Forests via zero-variance (constant-value) features that rebalance split selection, deepen/variate trees, and yield modest but reliable accuracy gains. 
+This repository accompanies a three-part research contribution: **(1)** a closed-form estimator that recovers scaled-Beta parameters $(\alpha,\beta)$ from `{min, max, mean, median}`; **(2)** an accuracy–fidelity link showing classification error bounds total variation and contracts **quadratically** in Jensen–Shannon divergence in the small-error regime; and **(3)** an implicit regularization mechanism for Random Forests via zero-variance (constant-value) features that rebalance split selection, deepen/variate trees, and yield modest but reliable accuracy gains. 
 
 Experiments use a year-long **SeatGeek** pricing dataset. A digits benchmark confirms the generality of the regularization effect.
 
