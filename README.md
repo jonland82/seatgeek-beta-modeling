@@ -1,4 +1,4 @@
-## Closed-Form Beta Distribution Estimation from Sparse Statistics with Random-Forest Implicit Regularization
+## Closed-Form Beta Distribution Estimation from Sparse Statistics with Random Forest Implicit Regularization
 
 [![License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/Data-CC--BY--NC%204.0-lightgrey.svg)](DATA_LICENSE)
